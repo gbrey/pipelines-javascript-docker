@@ -27,3 +27,9 @@ stages:
         dockerfile: 'app/Dockerfile'
         tags: |
           $(tag)
+- task: Docker@2
+  inputs:
+    containerRegistry: 'dockerhub'
+    repository: 'gbrey'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
